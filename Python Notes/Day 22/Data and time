@@ -1,0 +1,146 @@
+Introduction
+
+Python provides the datetime module to work with dates and times. It provides classes and methods for creating, formatting, parsing, and performing calculations with dates and times.
+
+1. Importing the datetime Module
+import datetime
+
+The module contains useful classes such as:
+
+date – works with dates
+time – works with time
+datetime – works with both date and time
+timedelta – performs date and time calculations
+2. Working with Dates
+
+The date class is used to represent dates.
+
+Getting Current Date
+from datetime import date
+
+today = date.today()
+print(today)
+Creating a Specific Date
+specific_date = date(2024, 2, 16)
+print(specific_date)
+Extracting Date Components
+print(today.year)
+print(today.month)
+print(today.day)
+year → Year
+month → Month
+day → Day
+Finding the Day of the Week
+print(today.weekday())
+print(today.isoweekday())
+weekday() → Monday = 0, Sunday = 6
+isoweekday() → Monday = 1, Sunday = 7
+3. Working with Time
+
+The time class is used to represent a specific time.
+
+from datetime import time
+
+specific_time = time(14, 30, 15)
+
+print(specific_time)
+print(specific_time.hour)
+print(specific_time.minute)
+print(specific_time.second)
+hour → Hour
+minute → Minute
+second → Second
+4. Working with Date and Time Together
+
+The datetime class handles both date and time.
+
+Getting Current Date and Time
+from datetime import datetime
+
+now = datetime.now()
+print(now)
+Creating a Specific Date and Time
+specific_datetime = datetime(2024, 2, 16, 14, 30, 15)
+print(specific_datetime)
+Extracting Components
+print(now.year)
+print(now.month)
+print(now.day)
+print(now.hour)
+print(now.minute)
+print(now.second)
+5. Formatting Date and Time
+
+The strftime() method converts a date/time into a formatted string.
+
+formatted_date = now.strftime("%Y-%m-%d")
+formatted_time = now.strftime("%H:%M:%S")
+formatted_datetime = now.strftime("%d-%b-%Y %I:%M %p")
+
+print(formatted_date)
+print(formatted_time)
+print(formatted_datetime)
+Common Formatting Codes
+Code	Meaning
+%Y	Full year
+%m	Month
+%d	Day
+%H	Hour (24-hour format)
+%I	Hour (12-hour format)
+%M	Minutes
+%S	Seconds
+%p	AM/PM
+%A	Full weekday name
+%B	Full month name
+6. Parsing Strings into Dates
+
+The strptime() method converts a string into a datetime object.
+
+date_string = "16-02-2024 14:30"
+
+parsed_date = datetime.strptime(
+    date_string, "%d-%m-%Y %H:%M"
+)
+
+print(parsed_date)
+Important Difference
+strftime() → Date/Time → String
+strptime() → String → Date/Time
+7. Date and Time Arithmetic
+
+The timedelta class is used to perform calculations with dates and times.
+
+Adding Days
+from datetime import timedelta
+
+future_date = today + timedelta(days=7)
+print(future_date)
+Subtracting Days
+past_date = today - timedelta(days=3)
+print(past_date)
+Adding Hours
+future_time = now + timedelta(hours=2)
+print(future_time)
+
+timedelta can be used with values such as:
+
+Days
+Hours
+Minutes
+Seconds
+Weeks
+Quick Summary
+Class / Method	Purpose
+date	Work with dates
+time	Work with time
+datetime	Work with date and time
+timedelta	Date/time calculations
+date.today()	Get current date
+datetime.now()	Get current date and time
+strftime()	Format date/time as string
+strptime()	Convert string to date/time
+weekday()	Get weekday number
+isoweekday()	Get ISO weekday number
+Key Takeaway
+
+Python's datetime module makes it easy to create, access, format, parse, and perform calculations on dates and times.
